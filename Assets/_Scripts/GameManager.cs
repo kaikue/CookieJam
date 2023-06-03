@@ -3,10 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public class GameManager : Singleton<MonoBehaviour>
 {
+    [SerializeField] private ElementFader blackPanel;
+
+    [SerializeField] private TextMeshProUGUI winText;
+    [SerializeField] private TextMeshProUGUI loseText;
+
     // The current end state of the game
     public EndState endState { get; private set; }
 
@@ -28,6 +34,12 @@ public class GameManager : Singleton<MonoBehaviour>
     // Start is called before the first frame update
     void Start()
     {
+        loseText.enabled = false;
+        winText.enabled = false;
+
+        blackPanel.SetAlpha(1f);
+        blackPanel.FadeOut();
+
         // Choose a random end state for the game
         ChooseRandomEndState();
 
@@ -46,7 +58,7 @@ public class GameManager : Singleton<MonoBehaviour>
     IEnumerator Gametimer()
     {
         
-        while (true)
+        while (timeLeft > 0)
         {
             
 
@@ -57,6 +69,47 @@ public class GameManager : Singleton<MonoBehaviour>
 
             yield return null;
         }
+        timeLeft = 0;
+        UpdateTimerUI?.TriggerEvent(this, timeLeft);
+        blackPanel.FadeIn();
+        CheckWinState();
+        while(true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            yield return null;
+        }
     }
 
+    private void CheckWinState()
+    {
+        if (endState == EndState.IceAge && PlayerManager.Instance.stats.stats.cold > PlayerManager.Instance.stats.coldThreshold)
+        {
+            WinGame();
+        }
+        if (endState == EndState.Meteor && PlayerManager.Instance.stats.stats.dig > PlayerManager.Instance.stats.digThreshold)
+        {
+            WinGame();
+        }
+        if (endState == EndState.WorldFlood && PlayerManager.Instance.stats.stats.swim > PlayerManager.Instance.stats.swimThreshold)
+        {
+            WinGame();
+        }
+        else
+        {
+            LoseGame();
+        }
+    }
+
+    private void LoseGame()
+    {
+        loseText.enabled = true;
+    }
+
+    private void WinGame()
+    {
+        winText.enabled = true;
+    }
 }

@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     [Header("Evolution Thresholds")]
-    [SerializeField] private int coldThreshold;
-    [SerializeField] private int digThreshold;
-    [SerializeField] private int swimThreshold;
-    [SerializeField] private int flyThreshold;
-    [SerializeField] private int playerSpeedThreshold;
+    [SerializeField] public int coldThreshold;
+    [SerializeField] public int digThreshold;
+    [SerializeField] public int swimThreshold;
+    [SerializeField] public int flyThreshold;
+    [SerializeField] public int playerSpeedThreshold;
     
 
     public struct PStats
@@ -55,6 +55,19 @@ public class PlayerStats : MonoBehaviour
             stats.playerSpeed += food.playerSpeed;
             UpdateStats?.TriggerEvent(this, stats);
         }
-        
+
+        if (stats.swim > swimThreshold)
+        {
+            PlayerManager.Instance.Evolve(PlayerManager.EvolutionState.SWIM);
+        }
+        if (stats.dig > digThreshold)
+        {
+            PlayerManager.Instance.Evolve(PlayerManager.EvolutionState.DIG);
+        }
+        if (stats.fly > flyThreshold)
+        {
+            PlayerManager.Instance.Evolve(PlayerManager.EvolutionState.FLY);
+        }
+
     }
 }

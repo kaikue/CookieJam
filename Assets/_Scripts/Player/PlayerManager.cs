@@ -13,6 +13,8 @@ public class PlayerManager : Singleton<PlayerManager>
     public bool CanFly = false;
     public bool CanDig = false;
 
+    public PlayerStats stats;
+
     public enum EvolutionState
     {
         DIG,
@@ -23,6 +25,7 @@ public class PlayerManager : Singleton<PlayerManager>
     private void Start()
     {
         refreshVisuals();
+        _playerBody.gameObject.GetComponent<PlayerStats>();
     }
 
     public void Evolve(EvolutionState state)
