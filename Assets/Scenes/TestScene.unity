@@ -213,7 +213,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &141210094
 GameObject:
@@ -469,7 +469,7 @@ RectTransform:
   - {fileID: 1948189388}
   - {fileID: 1615188150}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -487,7 +487,7 @@ GameObject:
   - component: {fileID: 227530456}
   - component: {fileID: 227530455}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,15 +505,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252f46edc0754c344b9caec52251e043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameText: {fileID: 1062685193}
-  timerText: {fileID: 141210096}
   timeLeft: 120
-  colorTransitionSpeed: 1
-  green: {r: 0.53874105, g: 1, b: 0.33725488, a: 1}
-  orange: {r: 1, g: 0.68056583, b: 0.2584905, a: 1}
-  orangeThreshold: 60
-  red: {r: 0.9528302, g: 0.26474753, b: 0.22831964, a: 1}
-  redThreshold: 30
+  UpdateTimerUI: {fileID: 11400000, guid: 0cb36d9ddfca6ec4797da71fe9fb52c6, type: 2}
+  UpdateUI: {fileID: 11400000, guid: 4efb18ce0d714684ebb1fd27edab9892, type: 2}
 --- !u!4 &227530456
 Transform:
   m_ObjectHideFlags: 0
@@ -664,6 +658,117 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062685191}
   m_CullTransparentMesh: 1
+--- !u!1 &1541288664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1541288666}
+  - component: {fileID: 1541288665}
+  - component: {fileID: 1541288667}
+  - component: {fileID: 1541288668}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1541288665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541288664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c05d00976b5dff4fa47735db53b2e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameText: {fileID: 1062685193}
+  timerText: {fileID: 141210096}
+  colorTransitionSpeed: 2
+  green: {r: 0.47928032, g: 1, b: 0.02264148, a: 1}
+  orange: {r: 1, g: 0.665653, b: 0.15471691, a: 1}
+  orangeThreshold: 60
+  red: {r: 0.9622642, g: 0.2215023, b: 0.2215023, a: 1}
+  redThreshold: 30
+  gameManager: {fileID: 0}
+--- !u!4 &1541288666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541288664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 811.9715, y: 443.3733, z: -9.327017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1541288667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541288664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994aa8ed06ebc3948aff77711a238ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0cb36d9ddfca6ec4797da71fe9fb52c6, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1541288665}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeTimeText
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1541288668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541288664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994aa8ed06ebc3948aff77711a238ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4efb18ce0d714684ebb1fd27edab9892, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1541288665}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1615188149
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,5 +961,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

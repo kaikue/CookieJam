@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodScriptable : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[CreateAssetMenu(menuName = "Food")]
+public class FoodScriptable : ScriptableObject
+{
+    Sprite sprite;
 }
