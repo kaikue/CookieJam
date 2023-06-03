@@ -276,8 +276,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ca0b44bb28f802e48873e248ebd07eef, type: 2}
+  m_sharedMaterial: {fileID: 2677129488238275907, guid: ca0b44bb28f802e48873e248ebd07eef, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -583,8 +583,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Time left until ...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ca0b44bb28f802e48873e248ebd07eef, type: 2}
+  m_sharedMaterial: {fileID: 2677129488238275907, guid: ca0b44bb28f802e48873e248ebd07eef, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -697,7 +697,6 @@ MonoBehaviour:
   orangeThreshold: 60
   red: {r: 0.9622642, g: 0.2215023, b: 0.2215023, a: 1}
   redThreshold: 30
-  gameManager: {fileID: 0}
 --- !u!4 &1541288666
 Transform:
   m_ObjectHideFlags: 0
