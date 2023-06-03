@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject _playerBody;
     private Rigidbody2D rb;
     private Animator playerAnimator;
-        
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log(col);
+        PlayerManager.Instance.Evolve(PlayerManager.EvolutionState.SWIM);
         if (col.gameObject.tag == "Water")
         {
             Destroy(gameObject);
