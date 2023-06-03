@@ -47,8 +47,6 @@ public class FoodSpawnZone : MonoBehaviour
         }
         if (foodScriptable.isWandering)
         {
-            Rigidbody2D rigidbody2D = item.AddComponent<Rigidbody2D>();
-            rigidbody2D.gravityScale = 0;
             WanderingAnimal wanderingAnimal = item.AddComponent<WanderingAnimal>();
             wanderingAnimal.range = foodScriptable.range;
             wanderingAnimal.speed = foodScriptable.speed;
