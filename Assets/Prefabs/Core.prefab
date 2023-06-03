@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252f46edc0754c344b9caec52251e043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackPanel: {fileID: 0}
+  blackPanel: {fileID: 8365413247382192284}
   winText: {fileID: 135381270038699428}
   loseText: {fileID: 5839987969891775372}
   timeLeft: 120
