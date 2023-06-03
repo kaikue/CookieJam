@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -19,6 +20,11 @@ public class UIManager : Singleton<UIManager>
     //in the red
     [SerializeField] private Color red;
     [SerializeField] private float redThreshold;
+
+    [SerializeField] public GameObject Fly;
+    [SerializeField] public GameObject Swim;
+    [SerializeField] public GameObject Dig;
+    [SerializeField] public GameObject Cold;
 
     private PlayerStats.PStats localStats;
 
@@ -59,6 +65,17 @@ public class UIManager : Singleton<UIManager>
 
     private void DisplayStatIncrease(PlayerStats.PStats stats)
     {
+        var flySlider = Fly.GetComponent<Slider>();
+        flySlider.value = stats.fly;
+
+        var digSlider = Dig.GetComponent<Slider>();
+        digSlider.value = stats.dig;
+
+        var swimSlider = Swim.GetComponent<Slider>();
+        swimSlider.value = stats.swim;
+
+        var coldSlider = Cold.GetComponent<Slider>();
+        coldSlider.value = stats.cold;
 
     }
 }

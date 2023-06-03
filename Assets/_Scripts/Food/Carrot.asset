@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300120, guid: 2700e06d970d112489ff23cfb58c3f78, type: 3}
   cold: 0
-  dig: 0
+  dig: 2
   swim: 0
-  fly: 0
+  fly: 4
+  playerSpeed: 0
   isWandering: 0
   range: 0
   speed: 0

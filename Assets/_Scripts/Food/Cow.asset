@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Cow
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: e2bde586482642d44a270276574c0129, type: 3}
+  cold: 3
+  dig: 0
+  swim: 0
+  fly: 2
+  playerSpeed: 3
   isWandering: 1
   range: 2
   speed: 3
