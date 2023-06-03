@@ -7,16 +7,19 @@ using static UnityEngine.EventSystems.EventTrigger;
 
 public class GameManager : Singleton<MonoBehaviour>
 {
-    
+    // The current end state of the game
     public EndState endState { get; private set; }
+
+    // The time left in the game
     public float timeLeft;
 
 
-
+    // Events for updating the UI
     [Header("Events")]
     [SerializeField] private GameEvent UpdateTimerUI;
     [SerializeField] private GameEvent UpdateUI;
 
+    // Enum representing different end states of the game
     public enum EndState
     {
         IceAge, Meteor, WorldFlood
@@ -25,19 +28,19 @@ public class GameManager : Singleton<MonoBehaviour>
     // Start is called before the first frame update
     void Start()
     {
+        // Choose a random end state for the game
         ChooseRandomEndState();
+
+        // Start the game timer coroutine
         StartCoroutine(Gametimer());
         
     }
+
+    // Choose a random end state for the game
     private void ChooseRandomEndState()
     {
         endState = (EndState)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(EndState)).Length);
         UpdateUI?.TriggerEvent(this, endState);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     IEnumerator Gametimer()

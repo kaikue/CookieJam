@@ -19,18 +19,6 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Color red;
     [SerializeField] private float redThreshold;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChangeTimeText(Component sender, object data)
     {
         if (data is float)
