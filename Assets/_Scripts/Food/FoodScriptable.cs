@@ -8,7 +8,7 @@ public class FoodScriptable : ScriptableObject
 {
     public Sprite sprite;
 
-    [Header("Food Stat")]
+    [Header("Food Stat For Player")]
     //used to survive ice age
     public int cold;
     //used to survive meteor
@@ -17,6 +17,7 @@ public class FoodScriptable : ScriptableObject
     public int swim;
     //used to be able to move around faster
     public int fly;
+    public int playerSpeed;
 
     [Header("Use if wandering food")]
     public bool isWandering;

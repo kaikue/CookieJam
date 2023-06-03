@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -18,6 +19,8 @@ public class UIManager : Singleton<UIManager>
     //in the red
     [SerializeField] private Color red;
     [SerializeField] private float redThreshold;
+
+    private PlayerStats.PStats localStats;
 
     public void ChangeTimeText(Component sender, object data)
     {
@@ -47,5 +50,15 @@ public class UIManager : Singleton<UIManager>
         {
             gameText.text = "Time left until " + endstate + "! : ";
         }
+        else if (args is PlayerStats.PStats stats)
+        {
+            DisplayStatIncrease(stats);
+            localStats = stats;
+        }
+    }
+
+    private void DisplayStatIncrease(PlayerStats.PStats stats)
+    {
+
     }
 }
