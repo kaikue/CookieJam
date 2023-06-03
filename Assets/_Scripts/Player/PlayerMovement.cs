@@ -36,11 +36,6 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log(col);
-        PlayerManager.Instance.Evolve(PlayerManager.EvolutionState.SWIM);
-        if (col.gameObject.tag == "Water")
-        {
-            Destroy(gameObject);
-        }
     }
 
 }
