@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class GameManager : Singleton<MonoBehaviour>
 {
@@ -31,20 +33,24 @@ public class GameManager : Singleton<MonoBehaviour>
     // Start is called before the first frame update
     void Start()
     {
-        
+        ChooseRandomEndState();
+        StartCoroutine(Gametimer());
+    }
+    private void ChooseRandomEndState()
+    {
+        endState = (EndState)UnityEngine.Random.Range(0, System.Enum.GetValues(typeof(EndState)).Length);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     IEnumerator Gametimer()
     {
         while (true)
         {
-            gameText.text = "Time left until" + endState + " : ";
+            gameText.text = "Time left until " + endState + "! : ";
 
             timeLeft = timeLeft - Time.deltaTime;
             timerText.text = timeLeft.ToString("F" + 2);
@@ -60,6 +66,8 @@ public class GameManager : Singleton<MonoBehaviour>
             {
                 timerText.color = Color.Lerp(timerText.color, green, Time.deltaTime * colorTransitionSpeed);
             }
+
+
 
             yield return null;
         }
