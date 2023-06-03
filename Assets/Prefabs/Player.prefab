@@ -118,6 +118,8 @@ GameObject:
   - component: {fileID: 8877418152975969093}
   - component: {fileID: 4486677985670318361}
   - component: {fileID: 5012433003852902545}
+  - component: {fileID: -3080675147717776314}
+  - component: {fileID: 7947444784228873311}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -142,7 +144,7 @@ Transform:
   - {fileID: 1121898551014039485}
   - {fileID: 841218686967545407}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8877418152975969093
 MonoBehaviour:
@@ -230,6 +232,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21109876, y: 0.15460795}
   m_EdgeRadius: 0
+--- !u!114 &-3080675147717776314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758372711062201824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774f8ec9c8fefe941ab76b0e2330142b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coldThreshold: 0
+  digThreshold: 0
+  swimThreshold: 0
+  flyThreshold: 0
+  playerSpeedThreshold: 0
+  UpdateStats: {fileID: 11400000, guid: 4efb18ce0d714684ebb1fd27edab9892, type: 2}
+--- !u!114 &7947444784228873311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758372711062201824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994aa8ed06ebc3948aff77711a238ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: a6f5882310d93874ca8154e1e0adc3b0, type: 2}
+  onEventTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -3080675147717776314}
+        m_TargetAssemblyTypeName: PlayerStats, Assembly-CSharp
+        m_MethodName: EatFood
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6903393349947150619
 GameObject:
   m_ObjectHideFlags: 0
