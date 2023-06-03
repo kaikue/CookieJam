@@ -47,6 +47,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (data is FoodScriptable food)
         {
+            Debug.Log("Player Ate");
             stats.cold += food.cold;
             stats.dig += food.dig;
             stats.swim += food.swim;
